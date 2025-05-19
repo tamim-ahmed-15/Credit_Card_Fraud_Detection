@@ -1,4 +1,4 @@
-# Credit Card Fraud Dataset Analysis
+# Credit Card Fraud Detection Dataset Analysis
 
 This project analyzes the [Credit Card Fraud Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) to explore transaction patterns, perform data profiling, and visualize fraud trends. It was developed as part of an internship Day 1 assignment to understand fraud detection in financial transactions using Python, Pandas, Matplotlib, and Seaborn.
 
