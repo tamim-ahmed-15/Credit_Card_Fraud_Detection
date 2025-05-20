@@ -15,6 +15,17 @@ The project involves:
 
 The analysis informs machine learning strategies for fraud detection, supporting secure transactions and business value (e.g., reducing fraud losses).
 
+## Dataset
+
+- **Source**: [Kaggle Credit Card Fraud Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- **Size**: ~284,807 transactions, 31 features (Time, V1–V28, Amount, Class).
+- **Features**:
+  - `Time`: Seconds elapsed since first transaction.
+  - `V1–V28`: Anonymized PCA-transformed features.
+  - `Amount`: Transaction amount.
+  - `Class`: 0 (normal), 1 (fraud).
+- **Note**: Due to size, `creditcard.csv` is not included in this repository. Download it from Kaggle and place it in the project directory.
+
 ## Project Structure
 
 - **Day 1: Exploratory Data Analysis (EDA)**:
@@ -26,17 +37,6 @@ The analysis informs machine learning strategies for fraud detection, supporting
   - Notebook: `Credit_Card_Fraud_Day2_Models.ipynb`
   - Trained and evaluated four models: Logistic Regression, Decision Tree, K-Nearest Neighbors (KNN), and Gaussian Naive Bayes.
   - Evaluated using accuracy, precision, recall, ROC-AUC and confusion matrices, with ROC curve comparisons.
-
-## Dataset
-
-- **Source**: [Kaggle Credit Card Fraud Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-- **Size**: ~284,807 transactions, 31 features (Time, V1–V28, Amount, Class).
-- **Features**:
-  - `Time`: Seconds elapsed since first transaction.
-  - `V1–V28`: Anonymized PCA-transformed features.
-  - `Amount`: Transaction amount.
-  - `Class`: 0 (normal), 1 (fraud).
-- **Note**: Due to size, `creditcard.csv` is not included in this repository. Download it from Kaggle and place it in the project directory.
 
 ## Outputs
 
