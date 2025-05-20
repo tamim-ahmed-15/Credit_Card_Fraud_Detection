@@ -15,6 +15,18 @@ The project involves:
 
 The analysis informs machine learning strategies for fraud detection, supporting secure transactions and business value (e.g., reducing fraud losses).
 
+## Project Structure
+
+- **Day 1: Exploratory Data Analysis (EDA)**:
+  - Notebook: `Credit_Card_Fraud_Day1_Analysis.ipynb`
+  - Analyzed dataset structure, class distribution, and feature distributions (Time, Amount, V1–V28).
+  - Generated visualizations to understand fraud patterns and feature characteristics.
+
+- **Day 2: Modeling and Evaluation**:
+  - Notebook: `Credit_Card_Fraud_Day2_Models.ipynb`
+  - Trained and evaluated four models: Logistic Regression, Decision Tree, K-Nearest Neighbors (KNN), and Gaussian Naive Bayes.
+  - Evaluated using accuracy, precision, recall, ROC-AUC and confusion matrices, with ROC curve comparisons.
+
 ## Dataset
 
 - **Source**: [Kaggle Credit Card Fraud Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
