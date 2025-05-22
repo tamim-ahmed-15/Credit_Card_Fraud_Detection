@@ -96,17 +96,20 @@ The project was structured with specific tasks and models implemented each day. 
 
 ### Day 4: Streamlit Web App
 - **Tasks**:
-  - Developed `app.py`, a Streamlit app for real-time fraud prediction.
+  - Developed `app.py`, a Streamlit app for batch fraud prediction via CSV upload.
   - Loaded the trained Random Forest model (`random_forest_model.pkl`) and scaler (`scaler.pkl`).
-  - Built an interface for users to input transaction data (Time, Amount, V1–V28) and view fraud probability.
-  - Deployed locally (`streamlit run app.py`, accessible at `http://localhost:8501`).
-- **Model Used**:
-  - **Random Forest**: Deployed from Day 3 for its robust performance.
-- **Observations**:
-  - The app is user-friendly but required manual input of 30 features, limiting practicality.
+  - Implemented CSV upload for transactions (Time, Amount, V1–V28), displaying predictions and a count of fraud cases.
+  - Added a feature importance visualization to highlight key predictors (e.g., V14, V10).
+  - Limited CSV prediction display to 100 rows for large files, with full results downloadable.
+  - Deployed locally (`streamlit run app.py`, accessible at `http://localhost:8503/`).
+- **Models Used**:
+  - **Random Forest**: Deployed from Day 3 for its robust performance (AUC ~0.90–0.95).
+- **Key Insights**:
+  - CSV upload with fraud count streamlined batch processing and improved usability.
+  - Fixed Pandas Styler error for large CSVs (~303,794 rows) by increasing cell limit to 10,000,000 and limiting displayed rows to 100.
   - Resolved a `ValueError` by aligning input feature order with training data (Time, V1–V28, Amount).
-  - Non-zero probabilities for all-zero inputs were traced to scaler effects and noted for future debugging.
-  - A Demo pdf is given inside of `Day04` folder named as `Streamlit_app.pdf`.
+  - Non-zero probabilities for all-zero inputs were debugged, attributed to scaler transformations.
+  - Screenshot captured in `Day04/Streamlit_app.mp4`.
 
 ### Model Performance Comparison
 
