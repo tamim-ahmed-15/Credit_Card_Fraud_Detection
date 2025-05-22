@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2+-F7931E?logo=scikit-learn&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## Overview
 
@@ -69,7 +68,7 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 - **Streamlit App**: The app provides an intuitive interface but requires manual input of 30 features, which could be streamlined with CSV uploads.
 - **Challenges**:
   - Handled class imbalance through undersampling.
-  - Resolved feature order mismatches in `app.py` (Day 4 `ValueError`).
+  - Resolved feature order mismatches in `app.py`.
   - Debugged non-zero probabilities (~10–20%) for all-zero inputs, attributed to scaler transformations.
 
 ---
@@ -80,10 +79,7 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 |-----------------------------------|--------------------------------------------------|
 | `Credit_Card_Fraud_Analysis_Days1-4.ipynb` | Jupyter Notebook for Days 1–4 (exploration, modeling, app code) |
 | `app.py`                          | Streamlit app for fraud prediction              |
-| `random_forest_model.pkl`         | Trained Random Forest model                     |
-| `scaler.pkl`                      | StandardScaler for feature scaling              |
-| `streamlit_app_screenshot.png`    | Screenshot of Streamlit app                     |
-| `summary_report.pdf`              | Final 1–2 page summary report                   |
+| `Streamlit_app_.pdf`    | Testing of Streamlit app                     |
 | `README.md`                       | Project overview and setup instructions         |
 
 **Note**: `creditcard.csv` is not included. Download from [Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud).
