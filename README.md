@@ -12,8 +12,6 @@ It contains the work completed as part of the [ML Developer Bootcamp Milestone 1
 - Explore and visualize transaction data to uncover fraud patterns.
 - Train and compare a range of machine learning models for fraud detection.
 - Deploy an interactive web app for user-friendly predictions.
-
-**Tools**: Python, Pandas, Seaborn, scikit-learn, Streamlit.
 ---
 
 ## Dataset
