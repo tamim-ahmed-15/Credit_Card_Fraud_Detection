@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection
+# Credit Card Fraud Detection (ML Developer Bootcamp)
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?logo=streamlit&logoColor=white)
@@ -6,11 +6,11 @@
 
 ## Overview
 
-This repository contains a machine learning project to detect fraudulent credit card transactions using the `creditcard.csv` dataset. Developed over five days, the project encompasses data exploration, model training, a Streamlit web application for real-time predictions, and a comprehensive summary report. The system addresses the challenge of class imbalance (0.17% fraud cases) and achieves high performance with ensemble models.
+It contains the work completed as part of the [ML Developer Bootcamp Milestone 1](https://www.notion.so/ML-Developer-Bootcamp-Milestone-1-1f7e0fadd2c880758320e27970a80716), focusing on developing a machine learning system to detect fraudulent credit card transactions using the `creditcard.csv` dataset. The project spans data exploration, training multiple baseline and advanced models, and deploying a Streamlit web application for fraud prediction.
 
 **Key Objectives**:
-- Analyze transaction data to identify fraud patterns.
-- Train and optimize machine learning models for fraud detection.
+- Explore and visualize transaction data to uncover fraud patterns.
+- Train and compare a range of machine learning models for fraud detection.
 - Deploy an interactive web app for user-friendly predictions.
 
 ---
@@ -24,62 +24,106 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 - **Target**: Class (0 = non-fraud, 1 = fraud)
 - **Class Distribution**: 284,315 non-fraud (99.83%), 492 fraud (0.17%)
 
-**Insight**: Severe class imbalance necessitated techniques like undersampling to improve model performance.
-
 ---
 
-## Methodology
+## Methodology and Model Implementation
 
-1. **Day 1: Data Exploration**
-   - Analyzed class distribution and feature correlations.
-   - Visualized key features (e.g., V14, V10) using Seaborn.
-   - Identified class imbalance as a primary challenge.
+The project was structured with specific tasks and models implemented each day. Below is a detailed breakdown, including observations and performance comparisons.
 
-2. **Day 2: Baseline Models**
-   - Trained a Decision Tree classifier (AUC ~0.80–0.85).
-   - Observed high false negatives due to class imbalance.
+### Day 1: Data Exploration
+- **Tasks**:
+  - Loaded `creditcard.csv` using Pandas and analyzed its structure.
+  - Computed class distribution and feature statistics (mean, std, min, max).
+  - Visualized features (e.g., V14, V10, V3, V4) using Seaborn to identify fraud patterns.
+- **Observations**:
+  - Confirmed severe class imbalance (99.83% non-fraud vs. 0.17% fraud).
+  - Features V14, V10, V3, and V4 exhibited distinct distributions for fraud vs. non-fraud transactions.
+  - Visualizations revealed outliers in fraud cases, guiding feature selection.
+- **Models**: None implemented.
 
-3. **Day 3: Model Improvement**
-   - Applied undersampling (~788 rows, 394 fraud, 394 non-fraud).
-   - Trained Random Forest (AUC ~0.90–0.95, precision ~0.80–0.95) and Gradient Boosting (AUC ~0.90–0.95, recall ~0.75–0.90).
-   - Identified V14, V10, V3, V4 as top fraud indicators via feature importance.
+### Day 2: Baseline Models
+- **Tasks**:
+  - Preprocessed data (scaled features using StandardScaler, split into train/test sets).
+  - Trained four baseline models to establish a performance benchmark.
+- **Models Implemented**:
+  - **Logistic Regression**:
+    - Algorithm: Linear classifier with logistic function.
+    - Parameters: Default (e.g., solver=’lbfgs’, C=1.0).
+    - Metrics: AUC, Precision, Recall.
+  - **Decision Tree**:
+    - Algorithm: CART (Classification and Regression Tree).
+    - Parameters: Default (e.g., max_depth=None).
+    - Metrics: AUC, Precision, Recall.
+  - **K-Nearest Neighbors (KNN)**:
+    - Algorithm: Distance-based classifier.
+    - Parameters: Default (e.g., n_neighbors=5, metric=’euclidean’).
+    - Metrics: AUC, Precision, Recall.
+  - **Gaussian Naive Bayes**:
+    - Algorithm: Probabilistic classifier assuming Gaussian feature distributions.
+    - Parameters: Default.
+    - Metrics: AUC, Precision, Recall.
+- **Observations**:
+  - **Logistic Regression**: AUC ~0.75–0.80, with low recall (~0.50–0.65) due to class imbalance skewing predictions toward non-fraud.
+  - **Decision Tree**: AUC ~0.80–0.85, moderate precision (~0.70–0.80), but low recall (~0.60–0.75) due to overfitting on imbalanced data.
+  - **KNN**: AUC ~0.78–0.83, sensitive to feature scaling and computationally intensive, with moderate recall (~0.55–0.70).
+  - **Gaussian Naive Bayes**: Lowest performance (AUC ~0.70–0.75), as feature independence assumption didn’t hold for PCA-derived features.
+  - Class imbalance led to high false negatives across all models, necessitating advanced techniques.
 
-4. **Day 4: Streamlit Web App**
-   - Developed `app.py`, enabling users to input transaction data and receive fraud probability predictions.
-   - Deployed locally via `streamlit run app.py` (accessible at `http://localhost:8501`).
-   - Screenshot: [Streamlit_app.pdf](Streamlit_app.pdf).
+### Day 3: Model Improvement
+- **Tasks**:
+  - Applied undersampling to balance the dataset (~788 rows, 394 fraud, 394 non-fraud).
+  - Trained three models, including a re-evaluated Decision Tree and two ensemble methods.
+  - Analyzed feature importance to identify key fraud indicators.
+- **Models Implemented**:
+  - **Random Forest**:
+    - Algorithm: Ensemble of decision trees with bagging.
+    - Parameters: Default (e.g., n_estimators=100).
+    - Metrics: AUC, Precision, Recall.
+  - **Decision Tree**:
+    - Algorithm: CART, re-evaluated with balanced data.
+    - Parameters: Default or tuned (e.g., max_depth=10).
+    - Metrics: AUC, Precision, Recall.
+  - **Gradient Boosting**:
+    - Algorithm: Gradient Boosted Decision Trees (e.g., scikit-learn’s GradientBoostingClassifier or XGBoost).
+    - Parameters: Default (e.g., n_estimators=100, learning_rate=0.1).
+    - Metrics: AUC, Precision, Recall.
+- **Observations**:
+  - **Random Forest**: Achieved AUC ~0.90–0.95, with high precision (~0.80–0.95) and moderate recall (~0.70–0.85). Robust due to ensemble approach.
+  - **Decision Tree**: Improved with undersampling (AUC ~0.85–0.90, precision ~0.75–0.85, recall ~0.65–0.80), but still outperformed by ensembles.
+  - **Gradient Boosting**: AUC ~0.90–0.95, with slightly lower precision (~0.75–0.90) but higher recall (~0.75–0.90), ideal for fraud detection.
+  - Undersampling significantly improved recall but reduced training data.
+  - Feature importance highlighted V14, V10, V3, and V4 as top predictors.
 
+### Day 4: Streamlit Web App
+- **Tasks**:
+  - Developed `app.py`, a Streamlit app for real-time fraud prediction.
+  - Loaded the trained Random Forest model (`random_forest_model.pkl`) and scaler (`scaler.pkl`).
+  - Built an interface for users to input transaction data (Time, Amount, V1–V28) and view fraud probability.
+  - Deployed locally (`streamlit run app.py`, accessible at `http://localhost:8501`).
+- **Model Used**:
+  - **Random Forest**: Deployed from Day 3 for its robust performance.
+- **Observations**:
+  - The app is user-friendly but required manual input of 30 features, limiting practicality.
+  - Resolved a `ValueError` by aligning input feature order with training data (Time, V1–V28, Amount).
+  - Non-zero probabilities for all-zero inputs were traced to scaler effects and noted for future debugging.
+  - A Demo pdf is given inside of `Day04` folder named as `Streamlit_app.pdf`.
 
-### Model Performance
+### Model Performance Comparison
 
-| Model              | AUC       | Precision | Recall    |
-|--------------------|-----------|-----------|-----------|
-| Decision Tree      | ~0.80–0.85| ~0.70–0.80| ~0.60–0.75|
-| Random Forest      | ~0.90–0.95| ~0.80–0.95| ~0.70–0.85|
-| Gradient Boosting  | ~0.90–0.95| ~0.75–0.90| ~0.75–0.90|
+The following table compares the performance of all models implemented across Days 2 and 3, evaluated on the test set:
 
----
+| Model                  | AUC       | Precision | Recall    | Observations                                      |
+|------------------------|-----------|-----------|-----------|--------------------------------------------------|
+| Logistic Regression    | ~0.75–0.80| ~0.65–0.75| ~0.50–0.65| Poor recall due to class imbalance sensitivity.   |
+| Decision Tree (Day 2)  | ~0.80–0.85| ~0.70–0.80| ~0.60–0.75| Moderate performance; high false negatives.       |
+| KNN                    | ~0.78–0.83| ~0.65–0.75| ~0.55–0.70| Scaling-dependent; computationally intensive.     |
+| Gaussian Naive Bayes   | ~0.70–0.75| ~0.60–0.70| ~0.50–0.65| Poor fit due to feature independence assumption.  |
+| Decision Tree (Day 3)  | ~0.85–0.90| ~0.75–0.85| ~0.65–0.80| Improved with undersampling but outperformed by ensembles. |
+| Random Forest          | ~0.90–0.95| ~0.80–0.95| ~0.70–0.85| High precision and AUC; robust and balanced.      |
+| Gradient Boosting      | ~0.90–0.95| ~0.75–0.90| ~0.75–0.90| High recall, best for minimizing false negatives. |
 
-## Key Findings
-
-- **High Model Performance**: Random Forest and Gradient Boosting achieved AUCs of ~0.90–0.95, with Gradient Boosting excelling in recall (~0.75–0.90), critical for fraud detection.
-- **Feature Importance**: V14, V10, V3, and V4 were the most predictive features, highlighting the effectiveness of PCA-derived features.
-- **Class Imbalance**: Undersampling balanced the dataset but reduced training data, suggesting SMOTE for future improvements.
-- **Streamlit App**: The app provides an intuitive interface but requires manual input of 30 features, which could be streamlined with CSV uploads.
-- **Challenges**:
-  - Handled class imbalance through undersampling.
-  - Resolved feature order mismatches in `app.py`.
-  - Debugged non-zero probabilities (~10–20%) for all-zero inputs, attributed to scaler transformations.
-
----
-
-## Repository Structure
-
-| File                              | Description                                      |
-|-----------------------------------|--------------------------------------------------|
-| `Credit_Card_Fraud_Analysis_Days1-4.ipynb` | Jupyter Notebook for Days 1–4 (exploration, modeling, app code) |
-| `app.py`                          | Streamlit app for fraud prediction              |
-| `Streamlit_app_.pdf`    | Testing of Streamlit app                     |
-| `README.md`                       | Project overview and setup instructions         |
-
-**Note**: `creditcard.csv` is not included. Download from [Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud).
+**Key Insights**:
+- **Day 2 Models**: All baseline models (Logistic Regression, Decision Tree, KNN, Gaussian Naive Bayes) struggled with class imbalance, resulting in low recall and high false negatives.
+- **Day 3 Models**: Undersampling improved performance, with Random Forest and Gradient Boosting achieving superior AUC (~0.90–0.95). Gradient Boosting excelled in recall, critical for fraud detection.
+- **Random Forest** was selected for the Streamlit app due to its balanced performance and robustness.
+- Class imbalance was the primary challenge, mitigated by undersampling but at the cost of reduced training data.
