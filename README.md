@@ -13,7 +13,6 @@ This repository contains a machine learning project to detect fraudulent credit 
 - Analyze transaction data to identify fraud patterns.
 - Train and optimize machine learning models for fraud detection.
 - Deploy an interactive web app for user-friendly predictions.
-- Document findings and reflections in a professional report.
 
 ---
 
@@ -32,8 +31,6 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 
 ## Methodology
 
-The project was structured across five days, each focusing on a critical phase:
-
 1. **Day 1: Data Exploration**
    - Analyzed class distribution and feature correlations.
    - Visualized key features (e.g., V14, V10) using Seaborn.
@@ -51,11 +48,8 @@ The project was structured across five days, each focusing on a critical phase:
 4. **Day 4: Streamlit Web App**
    - Developed `app.py`, enabling users to input transaction data and receive fraud probability predictions.
    - Deployed locally via `streamlit run app.py` (accessible at `http://localhost:8501`).
-   - Screenshot: [streamlit_app_screenshot.png](streamlit_app_screenshot.png).
+   - Screenshot: [Streamlit_app.pdf]([streamlit_app_screenshot.png](https://github.com/tamim-ahmed-15/Credit_Card_Fraud_Detection/blob/main/Day04/Streamlit_app.pdf)).
 
-5. **Day 5: Final Review & Submission**
-   - Polished Jupyter Notebook with clear sections and comments.
-   - Created this README and a summary report (`summary_report.pdf`).
 
 ### Model Performance
 
