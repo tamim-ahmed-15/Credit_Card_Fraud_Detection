@@ -109,7 +109,7 @@ The project was structured with specific tasks and models implemented each day. 
   - Fixed Pandas Styler error for large CSVs (~303,794 rows) by increasing cell limit to 10,000,000 and limiting displayed rows to 100.
   - Resolved a `ValueError` by aligning input feature order with training data (Time, V1–V28, Amount).
   - Non-zero probabilities for all-zero inputs were debugged, attributed to scaler transformations.
-  - Screenshot captured in `Day04/Streamlit_app.mp4`.
+  - Screenrecord captured in `Day04/Streamlit_app.mp4`.
 
 ### Model Performance Comparison
 
