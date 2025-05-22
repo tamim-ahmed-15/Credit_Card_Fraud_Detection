@@ -47,7 +47,7 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 4. **Day 4: Streamlit Web App**
    - Developed `app.py`, enabling users to input transaction data and receive fraud probability predictions.
    - Deployed locally via `streamlit run app.py` (accessible at `http://localhost:8501`).
-   - Screenshot: [Streamlit_app.pdf]([streamlit_app_screenshot.png](https://github.com/tamim-ahmed-15/Credit_Card_Fraud_Detection/blob/main/Day04/Streamlit_app.pdf)).
+   - Screenshot: [Streamlit_app.pdf](Streamlit_app.pdf).
 
 
 ### Model Performance
