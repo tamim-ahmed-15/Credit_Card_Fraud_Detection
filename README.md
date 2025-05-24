@@ -22,8 +22,8 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 - **Features**: 30 (Time, Amount, V1–V28 PCA-derived features)
 - **Target**: Class (0 = non-fraud, 1 = fraud)
 - **Class Distribution**: 284,315 non-fraud (99.83%), 492 fraud (0.17%)
-**Tools**
-  -Python, pandas, numpy,matplotlib, seaborn, scikit-learn, streamlit,joblib.
+## Tools
+  Python, pandas, numpy,matplotlib, seaborn, scikit-learn, streamlit,joblib.
 ## Methodology and Model Implementation
 
 ## Day 1: Data Exploration
