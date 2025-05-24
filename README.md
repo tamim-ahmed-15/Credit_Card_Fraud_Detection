@@ -54,12 +54,23 @@ The dataset is sourced from [Kaggle's Credit Card Fraud Detection](https://www.k
 - Class imbalance was the primary challenge, mitigated by undersampling but at the cost of reduced training data.
 
 ## Setup Instructions
-1. Clone the repository:
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/credit-card-fraud-analysis.git
-2. Install dependencies:
+   git clone https://github.com/tamim-ahmed-15/Credit_Card_Fraud_Detection.git
+   ```
+
+2. **Install dependencies:**
+   ```bash
    pip install pandas numpy scikit-learn seaborn matplotlib streamlit joblib
-3. Run The Notebook:
+   ```
+
+3. **Run the Jupyter notebook:**
+   ```bash
    jupyter notebook Credit_Card_Fraud_Analysis.ipynb
-4. Run the Streamlit app:
+   ```
+
+4. **Run the Streamlit app:**
+   ```bash
    streamlit run app.py
+   ```
